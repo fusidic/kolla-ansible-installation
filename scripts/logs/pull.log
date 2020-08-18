@@ -1,0 +1,711 @@
+Pulling Docker images : ansible-playbook -i ../multinode -e @/etc/kolla/globals.yml  -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  -e kolla_action=pull /usr/local/share/kolla-ansible/ansible/site.yml 
+[DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to 
+allow bad characters in group names by default, this will change, but still be 
+user configurable on deprecation. This feature will be removed in version 2.10.
+ Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+[WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+[WARNING]: Could not match supplied host pattern, ignoring: enable_nova_True
+
+PLAY [Gather facts for all hosts] **********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [server2]
+ok: [server1]
+ok: [server3]
+
+TASK [Group hosts to determine when using --limit] *****************************
+ok: [server3]
+ok: [server2]
+ok: [server1]
+[WARNING]: Could not match supplied host pattern, ignoring:
+all_using_limit_True
+
+PLAY [Gather facts for all hosts (if using --limit)] ***************************
+skipping: no hosts matched
+
+PLAY [Group hosts based on configuration] **************************************
+
+TASK [Group hosts based on Kolla action] ***************************************
+ok: [server3]
+ok: [server2]
+ok: [server1]
+
+TASK [Group hosts based on enabled services] ***********************************
+ok: [server3] => (item=enable_aodh_False)
+ok: [server3] => (item=enable_barbican_False)
+ok: [server3] => (item=enable_blazar_False)
+ok: [server3] => (item=enable_ceilometer_False)
+ok: [server2] => (item=enable_aodh_False)
+ok: [server3] => (item=enable_chrony_True)
+ok: [server2] => (item=enable_barbican_False)
+ok: [server3] => (item=enable_cinder_True)
+ok: [server2] => (item=enable_blazar_False)
+ok: [server3] => (item=enable_cloudkitty_False)
+ok: [server2] => (item=enable_ceilometer_False)
+ok: [server3] => (item=enable_collectd_False)
+ok: [server2] => (item=enable_chrony_True)
+ok: [server3] => (item=enable_cyborg_False)
+ok: [server2] => (item=enable_cinder_True)
+ok: [server3] => (item=enable_designate_False)
+ok: [server2] => (item=enable_cloudkitty_False)
+ok: [server3] => (item=enable_elasticsearch_False)
+ok: [server3] => (item=enable_etcd_False)
+ok: [server2] => (item=enable_collectd_False)
+ok: [server3] => (item=enable_freezer_False)
+ok: [server2] => (item=enable_cyborg_False)
+ok: [server3] => (item=enable_glance_True)
+ok: [server2] => (item=enable_designate_False)
+ok: [server3] => (item=enable_gnocchi_False)
+ok: [server2] => (item=enable_elasticsearch_False)
+ok: [server1] => (item=enable_aodh_False)
+ok: [server3] => (item=enable_grafana_False)
+ok: [server2] => (item=enable_etcd_False)
+ok: [server1] => (item=enable_barbican_False)
+ok: [server3] => (item=enable_haproxy_False)
+ok: [server2] => (item=enable_freezer_False)
+ok: [server3] => (item=enable_heat_True)
+ok: [server2] => (item=enable_glance_True)
+ok: [server1] => (item=enable_blazar_False)
+ok: [server3] => (item=enable_horizon_True)
+ok: [server2] => (item=enable_gnocchi_False)
+ok: [server1] => (item=enable_ceilometer_False)
+ok: [server3] => (item=enable_influxdb_False)
+ok: [server2] => (item=enable_grafana_False)
+ok: [server1] => (item=enable_chrony_True)
+ok: [server3] => (item=enable_ironic_False)
+ok: [server2] => (item=enable_haproxy_False)
+ok: [server1] => (item=enable_cinder_True)
+ok: [server3] => (item=enable_iscsid_True)
+ok: [server2] => (item=enable_heat_True)
+ok: [server1] => (item=enable_cloudkitty_False)
+ok: [server3] => (item=enable_kafka_False)
+ok: [server2] => (item=enable_horizon_True)
+ok: [server1] => (item=enable_collectd_False)
+ok: [server3] => (item=enable_karbor_False)
+ok: [server2] => (item=enable_influxdb_False)
+ok: [server1] => (item=enable_cyborg_False)
+ok: [server3] => (item=enable_keystone_True)
+ok: [server2] => (item=enable_ironic_False)
+ok: [server1] => (item=enable_designate_False)
+ok: [server3] => (item=enable_kibana_False)
+ok: [server2] => (item=enable_iscsid_True)
+ok: [server1] => (item=enable_elasticsearch_False)
+ok: [server3] => (item=enable_kuryr_False)
+ok: [server2] => (item=enable_kafka_False)
+ok: [server3] => (item=enable_magnum_False)
+ok: [server1] => (item=enable_etcd_False)
+ok: [server2] => (item=enable_karbor_False)
+ok: [server3] => (item=enable_manila_False)
+ok: [server1] => (item=enable_freezer_False)
+ok: [server2] => (item=enable_keystone_True)
+ok: [server3] => (item=enable_mariadb_True)
+ok: [server1] => (item=enable_glance_True)
+ok: [server2] => (item=enable_kibana_False)
+ok: [server3] => (item=enable_masakari_False)
+ok: [server2] => (item=enable_kuryr_False)
+ok: [server1] => (item=enable_gnocchi_False)
+ok: [server3] => (item=enable_memcached_True)
+ok: [server2] => (item=enable_magnum_False)
+ok: [server1] => (item=enable_grafana_False)
+ok: [server3] => (item=enable_mistral_False)
+ok: [server2] => (item=enable_manila_False)
+ok: [server1] => (item=enable_haproxy_False)
+ok: [server3] => (item=enable_monasca_False)
+ok: [server2] => (item=enable_mariadb_True)
+ok: [server1] => (item=enable_heat_True)
+ok: [server3] => (item=enable_multipathd_False)
+ok: [server2] => (item=enable_masakari_False)
+ok: [server1] => (item=enable_horizon_True)
+ok: [server3] => (item=enable_murano_False)
+ok: [server2] => (item=enable_memcached_True)
+ok: [server1] => (item=enable_influxdb_False)
+ok: [server3] => (item=enable_neutron_True)
+ok: [server2] => (item=enable_mistral_False)
+ok: [server1] => (item=enable_ironic_False)
+ok: [server3] => (item=enable_nova_True)
+ok: [server2] => (item=enable_monasca_False)
+ok: [server1] => (item=enable_iscsid_True)
+ok: [server3] => (item=enable_octavia_False)
+ok: [server2] => (item=enable_multipathd_False)
+ok: [server1] => (item=enable_kafka_False)
+ok: [server3] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [server2] => (item=enable_murano_False)
+ok: [server1] => (item=enable_karbor_False)
+ok: [server3] => (item=enable_outward_rabbitmq_False)
+ok: [server2] => (item=enable_neutron_True)
+ok: [server1] => (item=enable_keystone_True)
+ok: [server3] => (item=enable_ovn_False)
+ok: [server2] => (item=enable_nova_True)
+ok: [server1] => (item=enable_kibana_False)
+ok: [server2] => (item=enable_octavia_False)
+ok: [server3] => (item=enable_panko_False)
+ok: [server1] => (item=enable_kuryr_False)
+ok: [server3] => (item=enable_placement_True)
+ok: [server2] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [server1] => (item=enable_magnum_False)
+ok: [server3] => (item=enable_prometheus_False)
+ok: [server2] => (item=enable_outward_rabbitmq_False)
+ok: [server1] => (item=enable_manila_False)
+ok: [server3] => (item=enable_qdrouterd_False)
+ok: [server2] => (item=enable_ovn_False)
+ok: [server1] => (item=enable_mariadb_True)
+ok: [server3] => (item=enable_qinling_False)
+ok: [server2] => (item=enable_panko_False)
+ok: [server1] => (item=enable_masakari_False)
+ok: [server3] => (item=enable_rabbitmq_True)
+ok: [server2] => (item=enable_placement_True)
+ok: [server1] => (item=enable_memcached_True)
+ok: [server3] => (item=enable_rally_False)
+ok: [server2] => (item=enable_prometheus_False)
+ok: [server1] => (item=enable_mistral_False)
+ok: [server3] => (item=enable_redis_False)
+ok: [server2] => (item=enable_qdrouterd_False)
+ok: [server1] => (item=enable_monasca_False)
+ok: [server3] => (item=enable_sahara_False)
+ok: [server2] => (item=enable_qinling_False)
+ok: [server1] => (item=enable_multipathd_False)
+ok: [server3] => (item=enable_searchlight_False)
+ok: [server2] => (item=enable_rabbitmq_True)
+ok: [server1] => (item=enable_murano_False)
+ok: [server3] => (item=enable_senlin_False)
+ok: [server2] => (item=enable_rally_False)
+ok: [server1] => (item=enable_neutron_True)
+ok: [server3] => (item=enable_skydive_False)
+ok: [server2] => (item=enable_redis_False)
+ok: [server1] => (item=enable_nova_True)
+ok: [server3] => (item=enable_solum_False)
+ok: [server2] => (item=enable_sahara_False)
+ok: [server1] => (item=enable_octavia_False)
+ok: [server3] => (item=enable_storm_False)
+ok: [server2] => (item=enable_searchlight_False)
+ok: [server1] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [server3] => (item=enable_swift_False)
+ok: [server2] => (item=enable_senlin_False)
+ok: [server1] => (item=enable_outward_rabbitmq_False)
+ok: [server3] => (item=enable_tacker_False)
+ok: [server2] => (item=enable_skydive_False)
+ok: [server1] => (item=enable_ovn_False)
+ok: [server3] => (item=enable_telegraf_False)
+ok: [server2] => (item=enable_solum_False)
+ok: [server1] => (item=enable_panko_False)
+ok: [server3] => (item=enable_tempest_False)
+ok: [server2] => (item=enable_storm_False)
+ok: [server1] => (item=enable_placement_True)
+ok: [server3] => (item=enable_trove_False)
+ok: [server2] => (item=enable_swift_False)
+ok: [server1] => (item=enable_prometheus_False)
+ok: [server3] => (item=enable_vitrage_False)
+ok: [server2] => (item=enable_tacker_False)
+ok: [server1] => (item=enable_qdrouterd_False)
+ok: [server3] => (item=enable_vmtp_False)
+ok: [server2] => (item=enable_telegraf_False)
+ok: [server1] => (item=enable_qinling_False)
+ok: [server3] => (item=enable_watcher_False)
+ok: [server2] => (item=enable_tempest_False)
+ok: [server1] => (item=enable_rabbitmq_True)
+ok: [server3] => (item=enable_zookeeper_False)
+ok: [server2] => (item=enable_trove_False)
+ok: [server1] => (item=enable_rally_False)
+ok: [server3] => (item=enable_zun_False)
+ok: [server2] => (item=enable_vitrage_False)
+ok: [server1] => (item=enable_redis_False)
+ok: [server2] => (item=enable_vmtp_False)
+ok: [server1] => (item=enable_sahara_False)
+ok: [server2] => (item=enable_watcher_False)
+ok: [server1] => (item=enable_searchlight_False)
+ok: [server2] => (item=enable_zookeeper_False)
+ok: [server1] => (item=enable_senlin_False)
+ok: [server2] => (item=enable_zun_False)
+ok: [server1] => (item=enable_skydive_False)
+ok: [server1] => (item=enable_solum_False)
+ok: [server1] => (item=enable_storm_False)
+ok: [server1] => (item=enable_swift_False)
+ok: [server1] => (item=enable_tacker_False)
+ok: [server1] => (item=enable_telegraf_False)
+ok: [server1] => (item=enable_tempest_False)
+ok: [server1] => (item=enable_trove_False)
+ok: [server1] => (item=enable_vitrage_False)
+ok: [server1] => (item=enable_vmtp_False)
+ok: [server1] => (item=enable_watcher_False)
+ok: [server1] => (item=enable_zookeeper_False)
+ok: [server1] => (item=enable_zun_False)
+[WARNING]: Could not match supplied host pattern, ignoring:
+kolla_action_precheck
+
+PLAY [Apply role prechecks] ****************************************************
+skipping: no hosts matched
+
+PLAY [Apply role common] *******************************************************
+
+TASK [common : include_tasks] **************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/common/tasks/pull.yml for server1, server2, server3
+
+TASK [common : Pulling common images] ******************************************
+ok: [server3] => (item={'key': 'fluentd', 'value': {'container_name': 'fluentd', 'group': 'fluentd', 'enabled': True, 'image': 'kolla/ubuntu-source-fluentd:ussuri', 'environment': {'KOLLA_CONFIG_STRATEGY': 'COPY_ALWAYS'}, 'volumes': ['/etc/kolla/fluentd/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', 'fluentd_data:/var/lib/fluentd/data/'], 'dimensions': {}}})
+ok: [server2] => (item={'key': 'fluentd', 'value': {'container_name': 'fluentd', 'group': 'fluentd', 'enabled': True, 'image': 'kolla/ubuntu-source-fluentd:ussuri', 'environment': {'KOLLA_CONFIG_STRATEGY': 'COPY_ALWAYS'}, 'volumes': ['/etc/kolla/fluentd/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', 'fluentd_data:/var/lib/fluentd/data/'], 'dimensions': {}}})
+ok: [server1] => (item={'key': 'fluentd', 'value': {'container_name': 'fluentd', 'group': 'fluentd', 'enabled': True, 'image': 'kolla/ubuntu-source-fluentd:ussuri', 'environment': {'KOLLA_CONFIG_STRATEGY': 'COPY_ALWAYS'}, 'volumes': ['/etc/kolla/fluentd/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', 'fluentd_data:/var/lib/fluentd/data/'], 'dimensions': {}}})
+ok: [server2] => (item={'key': 'kolla-toolbox', 'value': {'container_name': 'kolla_toolbox', 'group': 'kolla-toolbox', 'enabled': True, 'image': 'kolla/ubuntu-source-kolla-toolbox:ussuri', 'environment': {'ANSIBLE_NOCOLOR': '1', 'ANSIBLE_LIBRARY': '/usr/share/ansible'}, 'privileged': True, 'volumes': ['/etc/kolla/kolla-toolbox/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+ok: [server3] => (item={'key': 'kolla-toolbox', 'value': {'container_name': 'kolla_toolbox', 'group': 'kolla-toolbox', 'enabled': True, 'image': 'kolla/ubuntu-source-kolla-toolbox:ussuri', 'environment': {'ANSIBLE_NOCOLOR': '1', 'ANSIBLE_LIBRARY': '/usr/share/ansible'}, 'privileged': True, 'volumes': ['/etc/kolla/kolla-toolbox/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+ok: [server1] => (item={'key': 'kolla-toolbox', 'value': {'container_name': 'kolla_toolbox', 'group': 'kolla-toolbox', 'enabled': True, 'image': 'kolla/ubuntu-source-kolla-toolbox:ussuri', 'environment': {'ANSIBLE_NOCOLOR': '1', 'ANSIBLE_LIBRARY': '/usr/share/ansible'}, 'privileged': True, 'volumes': ['/etc/kolla/kolla-toolbox/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+ok: [server3] => (item={'key': 'cron', 'value': {'container_name': 'cron', 'group': 'cron', 'enabled': True, 'image': 'kolla/ubuntu-source-cron:ussuri', 'environment': {'DUMMY_ENVIRONMENT': 'kolla_useless_env'}, 'volumes': ['/etc/kolla/cron/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+ok: [server2] => (item={'key': 'cron', 'value': {'container_name': 'cron', 'group': 'cron', 'enabled': True, 'image': 'kolla/ubuntu-source-cron:ussuri', 'environment': {'DUMMY_ENVIRONMENT': 'kolla_useless_env'}, 'volumes': ['/etc/kolla/cron/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+ok: [server1] => (item={'key': 'cron', 'value': {'container_name': 'cron', 'group': 'cron', 'enabled': True, 'image': 'kolla/ubuntu-source-cron:ussuri', 'environment': {'DUMMY_ENVIRONMENT': 'kolla_useless_env'}, 'volumes': ['/etc/kolla/cron/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+
+PLAY [Apply role chrony] *******************************************************
+
+TASK [chrony : include_tasks] **************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/chrony/tasks/pull.yml for server1, server2, server3
+
+TASK [chrony : Pulling chrony images] ******************************************
+ok: [server3] => (item={'key': 'chrony', 'value': {'container_name': 'chrony', 'group': 'chrony', 'image': 'kolla/ubuntu-source-chrony:ussuri', 'enabled': True, 'privileged': True, 'volumes': ['/etc/kolla/chrony/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla'], 'dimensions': {}}})
+ok: [server2] => (item={'key': 'chrony', 'value': {'container_name': 'chrony', 'group': 'chrony', 'image': 'kolla/ubuntu-source-chrony:ussuri', 'enabled': True, 'privileged': True, 'volumes': ['/etc/kolla/chrony/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla'], 'dimensions': {}}})
+ok: [server1] => (item={'key': 'chrony', 'value': {'container_name': 'chrony', 'group': 'chrony', 'image': 'kolla/ubuntu-source-chrony:ussuri', 'enabled': True, 'privileged': True, 'volumes': ['/etc/kolla/chrony/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla'], 'dimensions': {}}})
+[WARNING]: Could not match supplied host pattern, ignoring: enable_haproxy_True
+
+PLAY [Apply role haproxy] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_collectd_True
+
+PLAY [Apply role collectd] *****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_zookeeper_True
+
+PLAY [Apply role zookeeper] ****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_elasticsearch_True
+
+PLAY [Apply role elasticsearch] ************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_influxdb_True
+
+PLAY [Apply role influxdb] *****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_telegraf_True
+
+PLAY [Apply role telegraf] *****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_redis_True
+
+PLAY [Apply role redis] ********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_kibana_True
+
+PLAY [Apply role kibana] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role mariadb] ******************************************************
+
+TASK [mariadb : include_tasks] *************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/mariadb/tasks/pull.yml for server1
+
+TASK [mariadb : Pulling mariadb image] *****************************************
+ok: [server1] => (item={'key': 'mariadb', 'value': {'container_name': 'mariadb', 'group': 'mariadb', 'enabled': True, 'image': 'kolla/ubuntu-source-mariadb:ussuri', 'volumes': ['/etc/kolla/mariadb/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'mariadb:/var/lib/mysql', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}, 'haproxy': {'mariadb': {'enabled': True, 'mode': 'tcp', 'port': '3306', 'listen_port': '3306', 'frontend_tcp_extra': ['option clitcpka', 'timeout client 3600s'], 'backend_tcp_extra': ['option srvtcpka', 'timeout server 3600s', 'option httpchk'], 'custom_member_list': ['server server1 192.168.1.201:3306 check port 4569  inter 2000 rise 2 fall 5', '']}, 'mariadb_external_lb': {'enabled': False, 'mode': 'tcp', 'port': '3306', 'listen_port': '3306', 'frontend_tcp_extra': ['option clitcpka', 'timeout client 3600s'], 'backend_tcp_extra': ['option srvtcpka', 'timeout server 3600s'], 'custom_member_list': ['server server1 server1:3306 check port 4569  inter 2000 rise 2 fall 5', '']}}}})
+ok: [server1] => (item={'key': 'mariadb-clustercheck', 'value': {'container_name': 'mariadb_clustercheck', 'group': 'mariadb', 'enabled': True, 'image': 'kolla/ubuntu-source-mariadb-clustercheck:ussuri', 'volumes': ['/etc/kolla/mariadb-clustercheck/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}, 'environment': {'MYSQL_USERNAME': 'haproxy', 'MYSQL_PASSWORD': '', 'MYSQL_HOST': '192.168.1.201', 'AVAILABLE_WHEN_DONOR': '1'}}})
+
+PLAY [Apply role memcached] ****************************************************
+
+TASK [memcached : include_tasks] ***********************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/memcached/tasks/pull.yml for server1
+
+TASK [memcached : Pulling memcached image] *************************************
+ok: [server1]
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_prometheus_True
+
+PLAY [Apply role prometheus] ***************************************************
+skipping: no hosts matched
+
+PLAY [Apply role iscsi] ********************************************************
+
+TASK [iscsi : include_tasks] ***************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/iscsi/tasks/pull.yml for server2, server3, server1
+
+TASK [iscsi : Pulling iscsi images] ********************************************
+skipping: [server1] => (item={'key': 'iscsid', 'value': {'container_name': 'iscsid', 'group': 'iscsid', 'enabled': False, 'image': 'kolla/ubuntu-source-iscsid:ussuri', 'ipc_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/iscsid/:/var/lib/kolla/config_files/:ro', 'kolla_logs:/var/log/kolla/', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', '/sys/fs/cgroup:/sys/fs/cgroup:ro', '/lib/modules:/lib/modules:ro', '/sys/kernel/config:/configfs', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi'], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'tgtd', 'value': {'container_name': 'tgtd', 'group': 'tgtd', 'enabled': True, 'image': 'kolla/ubuntu-source-tgtd:ussuri', 'ipc_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/tgtd/:/var/lib/kolla/config_files/:ro', 'kolla_logs:/var/log/kolla/', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', '/sys/fs/cgroup:/sys/fs/cgroup:ro', '/lib/modules:/lib/modules:ro', '/sys/kernel/config:/configfs', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi'], 'dimensions': {}}}) 
+ok: [server3] => (item={'key': 'iscsid', 'value': {'container_name': 'iscsid', 'group': 'iscsid', 'enabled': True, 'image': 'kolla/ubuntu-source-iscsid:ussuri', 'ipc_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/iscsid/:/var/lib/kolla/config_files/:ro', 'kolla_logs:/var/log/kolla/', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', '/sys/fs/cgroup:/sys/fs/cgroup:ro', '/lib/modules:/lib/modules:ro', '/sys/kernel/config:/configfs', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi'], 'dimensions': {}}})
+ok: [server2] => (item={'key': 'iscsid', 'value': {'container_name': 'iscsid', 'group': 'iscsid', 'enabled': True, 'image': 'kolla/ubuntu-source-iscsid:ussuri', 'ipc_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/iscsid/:/var/lib/kolla/config_files/:ro', 'kolla_logs:/var/log/kolla/', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', '/sys/fs/cgroup:/sys/fs/cgroup:ro', '/lib/modules:/lib/modules:ro', '/sys/kernel/config:/configfs', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi'], 'dimensions': {}}})
+skipping: [server2] => (item={'key': 'tgtd', 'value': {'container_name': 'tgtd', 'group': 'tgtd', 'enabled': True, 'image': 'kolla/ubuntu-source-tgtd:ussuri', 'ipc_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/tgtd/:/var/lib/kolla/config_files/:ro', 'kolla_logs:/var/log/kolla/', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', '/sys/fs/cgroup:/sys/fs/cgroup:ro', '/lib/modules:/lib/modules:ro', '/sys/kernel/config:/configfs', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi'], 'dimensions': {}}}) 
+changed: [server3] => (item={'key': 'tgtd', 'value': {'container_name': 'tgtd', 'group': 'tgtd', 'enabled': True, 'image': 'kolla/ubuntu-source-tgtd:ussuri', 'ipc_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/tgtd/:/var/lib/kolla/config_files/:ro', 'kolla_logs:/var/log/kolla/', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/run/:/run/:shared', '/sys/fs/cgroup:/sys/fs/cgroup:ro', '/lib/modules:/lib/modules:ro', '/sys/kernel/config:/configfs', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi'], 'dimensions': {}}})
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_multipathd_True
+
+PLAY [Apply role multipathd] ***************************************************
+skipping: no hosts matched
+
+PLAY [Apply role rabbitmq] *****************************************************
+
+TASK [rabbitmq : include_tasks] ************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/rabbitmq/tasks/pull.yml for server1
+
+TASK [rabbitmq : Pulling rabbitmq image] ***************************************
+ok: [server1] => (item={'key': 'rabbitmq', 'value': {'container_name': 'rabbitmq', 'group': 'rabbitmq', 'enabled': True, 'image': 'kolla/ubuntu-source-rabbitmq:ussuri', 'bootstrap_environment': {'KOLLA_BOOTSTRAP': None, 'KOLLA_CONFIG_STRATEGY': 'COPY_ALWAYS', 'RABBITMQ_CLUSTER_COOKIE': 'mwhLSzYnPlVjWTjNazlDVEq7n0IL1UaXohCB0mz9', 'RABBITMQ_LOG_DIR': '/var/log/kolla/rabbitmq'}, 'environment': {'KOLLA_CONFIG_STRATEGY': 'COPY_ALWAYS', 'RABBITMQ_CLUSTER_COOKIE': 'mwhLSzYnPlVjWTjNazlDVEq7n0IL1UaXohCB0mz9', 'RABBITMQ_LOG_DIR': '/var/log/kolla/rabbitmq'}, 'volumes': ['/etc/kolla/rabbitmq/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'rabbitmq:/var/lib/rabbitmq/', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}, 'haproxy': {'rabbitmq_management': {'enabled': 'yes', 'mode': 'http', 'port': '15672', 'host_group': 'rabbitmq'}, 'rabbitmq_outward_management': {'enabled': False, 'mode': 'http', 'port': '15674', 'host_group': 'outward-rabbitmq'}, 'rabbitmq_outward_external': {'enabled': False, 'mode': 'tcp', 'external': True, 'port': '5674', 'host_group': 'outward-rabbitmq', 'frontend_tcp_extra': ['timeout client 1h'], 'backend_tcp_extra': ['timeout server 1h']}}}})
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_outward_rabbitmq_True
+
+PLAY [Apply role rabbitmq (outward)] *******************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_qdrouterd_True
+
+PLAY [Apply role qdrouterd] ****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_etcd_True
+
+PLAY [Apply role etcd] *********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role keystone] *****************************************************
+
+TASK [keystone : include_tasks] ************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/keystone/tasks/pull.yml for server1
+
+TASK [keystone : Pulling keystone images] **************************************
+ok: [server1] => (item={'key': 'keystone', 'value': {'container_name': 'keystone', 'group': 'keystone', 'enabled': True, 'image': 'kolla/ubuntu-source-keystone:ussuri', 'volumes': ['/etc/kolla/keystone/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '', 'kolla_logs:/var/log/kolla/', 'keystone_fernet_tokens:/etc/keystone/fernet-keys'], 'dimensions': {}, 'haproxy': {'keystone_internal': {'enabled': True, 'mode': 'http', 'external': False, 'tls_backend': 'no', 'port': '5000', 'listen_port': '5000'}, 'keystone_external': {'enabled': True, 'mode': 'http', 'external': True, 'tls_backend': 'no', 'port': '5000', 'listen_port': '5000'}, 'keystone_admin': {'enabled': True, 'mode': 'http', 'external': False, 'tls_backend': 'no', 'port': '35357', 'listen_port': '35357'}}}})
+ok: [server1] => (item={'key': 'keystone-ssh', 'value': {'container_name': 'keystone_ssh', 'group': 'keystone', 'enabled': True, 'image': 'kolla/ubuntu-source-keystone-ssh:ussuri', 'volumes': ['/etc/kolla/keystone-ssh/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', 'keystone_fernet_tokens:/etc/keystone/fernet-keys'], 'dimensions': {}}})
+ok: [server1] => (item={'key': 'keystone-fernet', 'value': {'container_name': 'keystone_fernet', 'group': 'keystone', 'enabled': True, 'image': 'kolla/ubuntu-source-keystone-fernet:ussuri', 'volumes': ['/etc/kolla/keystone-fernet/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', 'keystone_fernet_tokens:/etc/keystone/fernet-keys'], 'dimensions': {}}})
+[WARNING]: Could not match supplied host pattern, ignoring: enable_kafka_True
+
+PLAY [Apply role kafka] ********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_storm_True
+
+PLAY [Apply role storm] ********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_karbor_True
+
+PLAY [Apply role karbor] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_swift_True
+
+PLAY [Apply role swift] ********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role glance] *******************************************************
+
+TASK [glance : include_tasks] **************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/glance/tasks/pull.yml for server1
+
+TASK [glance : Pulling glance images] ******************************************
+ok: [server1] => (item={'key': 'glance-api', 'value': {'container_name': 'glance_api', 'group': 'glance-api', 'host_in_groups': True, 'enabled': True, 'image': 'kolla/ubuntu-source-glance-api:ussuri', 'environment': {'http_proxy': '', 'https_proxy': '', 'no_proxy': 'localhost,127.0.0.1,192.168.1.201,192.168.1.250'}, 'privileged': True, 'volumes': ['/etc/kolla/glance-api/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'glance:/var/lib/glance/', '', 'kolla_logs:/var/log/kolla/', 'iscsi_info:/etc/iscsi', '/dev:/dev'], 'dimensions': {}, 'haproxy': {'glance_api': {'enabled': True, 'mode': 'http', 'external': False, 'port': '9292', 'frontend_http_extra': ['timeout client 6h'], 'backend_http_extra': ['timeout server 6h'], 'custom_member_list': ['server server1 192.168.1.201:9292 check inter 2000 rise 2 fall 5', '']}, 'glance_api_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '9292', 'frontend_http_extra': ['timeout client 6h'], 'backend_http_extra': ['timeout server 6h'], 'custom_member_list': ['server server1 192.168.1.201:9292 check inter 2000 rise 2 fall 5', '']}}}})
+skipping: [server1] => (item={'key': 'glance-tls-proxy', 'value': {'container_name': 'glance_tls_proxy', 'group': 'glance-api', 'host_in_groups': True, 'enabled': 'no', 'image': 'kolla/ubuntu-source-haproxy:ussuri', 'volumes': ['/etc/kolla/glance-tls-proxy/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}, 'haproxy': {'glance_tls_proxy': {'enabled': False, 'mode': 'http', 'external': False, 'port': '9292', 'frontend_http_extra': ['timeout client 6h'], 'backend_http_extra': ['timeout server 6h'], 'custom_member_list': ['server server1 192.168.1.201:9292 check inter 2000 rise 2 fall 5 ssl verify required ca-file ca-certificates.crt', ''], 'tls_backend': 'yes'}, 'glance_tls_proxy_external': {'enabled': False, 'mode': 'http', 'external': True, 'port': '9292', 'frontend_http_extra': ['timeout client 6h'], 'backend_http_extra': ['timeout server 6h'], 'custom_member_list': ['server server1 192.168.1.201:9292 check inter 2000 rise 2 fall 5 ssl verify required ca-file ca-certificates.crt', ''], 'tls_backend': 'yes'}}}}) 
+[WARNING]: Could not match supplied host pattern, ignoring: enable_ironic_True
+
+PLAY [Apply role ironic] *******************************************************
+skipping: no hosts matched
+
+PLAY [Apply role cinder] *******************************************************
+
+TASK [cinder : include_tasks] **************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/cinder/tasks/pull.yml for server1, server3
+
+TASK [cinder : Pulling cinder images] ******************************************
+skipping: [server3] => (item={'key': 'cinder-api', 'value': {'container_name': 'cinder_api', 'group': 'cinder-api', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-api:ussuri', 'volumes': ['/etc/kolla/cinder-api/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}, 'haproxy': {'cinder_api': {'enabled': 'yes', 'mode': 'http', 'external': False, 'port': '8776', 'listen_port': '8776', 'tls_backend': 'no'}, 'cinder_api_external': {'enabled': 'yes', 'mode': 'http', 'external': True, 'port': '8776', 'listen_port': '8776', 'tls_backend': 'no'}}}}) 
+skipping: [server3] => (item={'key': 'cinder-scheduler', 'value': {'container_name': 'cinder_scheduler', 'group': 'cinder-scheduler', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-scheduler:ussuri', 'volumes': ['/etc/kolla/cinder-scheduler/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+ok: [server1] => (item={'key': 'cinder-api', 'value': {'container_name': 'cinder_api', 'group': 'cinder-api', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-api:ussuri', 'volumes': ['/etc/kolla/cinder-api/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}, 'haproxy': {'cinder_api': {'enabled': 'yes', 'mode': 'http', 'external': False, 'port': '8776', 'listen_port': '8776', 'tls_backend': 'no'}, 'cinder_api_external': {'enabled': 'yes', 'mode': 'http', 'external': True, 'port': '8776', 'listen_port': '8776', 'tls_backend': 'no'}}}})
+ok: [server1] => (item={'key': 'cinder-scheduler', 'value': {'container_name': 'cinder_scheduler', 'group': 'cinder-scheduler', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-scheduler:ussuri', 'volumes': ['/etc/kolla/cinder-scheduler/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+skipping: [server1] => (item={'key': 'cinder-volume', 'value': {'container_name': 'cinder_volume', 'group': 'cinder-volume', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-volume:ussuri', 'privileged': True, 'ipc_mode': 'host', 'volumes': ['/etc/kolla/cinder-volume/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/lib/modules:/lib/modules:ro', '/run/:/run/:shared', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi', '', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'cinder-backup', 'value': {'container_name': 'cinder_backup', 'group': 'cinder-backup', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-backup:ussuri', 'privileged': True, 'volumes': ['/etc/kolla/cinder-backup/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/lib/modules:/lib/modules:ro', '/run/:/run/:shared', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+changed: [server3] => (item={'key': 'cinder-volume', 'value': {'container_name': 'cinder_volume', 'group': 'cinder-volume', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-volume:ussuri', 'privileged': True, 'ipc_mode': 'host', 'volumes': ['/etc/kolla/cinder-volume/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/lib/modules:/lib/modules:ro', '/run/:/run/:shared', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi', '', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+changed: [server3] => (item={'key': 'cinder-backup', 'value': {'container_name': 'cinder_backup', 'group': 'cinder-backup', 'enabled': True, 'image': 'kolla/ubuntu-source-cinder-backup:ussuri', 'privileged': True, 'volumes': ['/etc/kolla/cinder-backup/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/dev/:/dev/', '/lib/modules:/lib/modules:ro', '/run/:/run/:shared', 'cinder:/var/lib/cinder', 'iscsi_info:/etc/iscsi', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+
+PLAY [Apply role placement] ****************************************************
+
+TASK [placement : include_tasks] ***********************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/placement/tasks/pull.yml for server1
+
+TASK [placement : Pulling placement images] ************************************
+ok: [server1] => (item={'key': 'placement-api', 'value': {'container_name': 'placement_api', 'group': 'placement-api', 'image': 'kolla/ubuntu-source-placement-api:ussuri', 'enabled': True, 'volumes': ['/etc/kolla/placement-api/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}, 'haproxy': {'placement_api': {'enabled': True, 'mode': 'http', 'external': False, 'port': '8780', 'listen_port': '8780', 'tls_backend': 'no'}, 'placement_api_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '8780', 'listen_port': '8780', 'tls_backend': 'no'}}}})
+
+PLAY [Bootstrap nova API databases] ********************************************
+
+TASK [Bootstrap deploy] ********************************************************
+skipping: [server1]
+
+TASK [Bootstrap upgrade] *******************************************************
+skipping: [server1]
+
+PLAY [Bootstrap nova cell databases] *******************************************
+
+TASK [Bootstrap deploy] ********************************************************
+skipping: [server1]
+
+TASK [Bootstrap upgrade] *******************************************************
+skipping: [server1]
+
+PLAY [Apply role nova] *********************************************************
+
+TASK [nova : include_tasks] ****************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/nova/tasks/pull.yml for server1
+
+TASK [nova : Pulling nova images] **********************************************
+ok: [server1] => (item={'key': 'nova-api', 'value': {'container_name': 'nova_api', 'group': 'nova-api', 'image': 'kolla/ubuntu-source-nova-api:ussuri', 'enabled': True, 'privileged': True, 'volumes': ['/etc/kolla/nova-api/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}, 'haproxy': {'nova_api': {'enabled': True, 'mode': 'http', 'external': False, 'port': '8774', 'listen_port': '8774'}, 'nova_api_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '8774', 'listen_port': '8774'}, 'nova_metadata': {'enabled': True, 'mode': 'http', 'external': False, 'port': '8775', 'listen_port': '8775'}, 'nova_metadata_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '8775', 'listen_port': '8775'}}}})
+ok: [server1] => (item={'key': 'nova-scheduler', 'value': {'container_name': 'nova_scheduler', 'group': 'nova-scheduler', 'image': 'kolla/ubuntu-source-nova-scheduler:ussuri', 'enabled': True, 'volumes': ['/etc/kolla/nova-scheduler/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+skipping: [server1] => (item={'key': 'nova-super-conductor', 'value': {'container_name': 'nova_super_conductor', 'group': 'nova-super-conductor', 'enabled': 'no', 'image': 'kolla/ubuntu-source-nova-conductor:ussuri', 'volumes': ['/etc/kolla/nova-super-conductor/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+
+PLAY [Apply role nova-cell] ****************************************************
+
+TASK [nova-cell : include_tasks] ***********************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/nova-cell/tasks/pull.yml for server2, server1
+
+TASK [nova-cell : Pulling nova images] *****************************************
+skipping: [server1] => (item={'key': 'nova-libvirt', 'value': {'container_name': 'nova_libvirt', 'group': 'compute', 'enabled': True, 'image': 'kolla/ubuntu-source-nova-libvirt:ussuri', 'pid_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/nova-libvirt/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', '/run/:/run/:shared', '/dev:/dev', '/sys/fs/cgroup:/sys/fs/cgroup', 'kolla_logs:/var/log/kolla/', 'libvirtd:/var/lib/libvirt', 'nova_compute:/var/lib/nova/', '', 'nova_libvirt_qemu:/etc/libvirt/qemu', ''], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'nova-ssh', 'value': {'container_name': 'nova_ssh', 'group': 'compute', 'image': 'kolla/ubuntu-source-nova-ssh:ussuri', 'enabled': True, 'volumes': ['/etc/kolla/nova-ssh/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla', 'nova_compute:/var/lib/nova', '', ''], 'dimensions': {}}}) 
+ok: [server1] => (item={'key': 'nova-novncproxy', 'value': {'container_name': 'nova_novncproxy', 'group': 'nova-novncproxy', 'image': 'kolla/ubuntu-source-nova-novncproxy:ussuri', 'enabled': True, 'volumes': ['/etc/kolla/nova-novncproxy/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+skipping: [server1] => (item={'key': 'nova-spicehtml5proxy', 'value': {'container_name': 'nova_spicehtml5proxy', 'group': 'nova-spicehtml5proxy', 'image': 'kolla/ubuntu-source-nova-spicehtml5proxy:ussuri', 'enabled': False, 'volumes': ['/etc/kolla/nova-spicehtml5proxy/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'nova-serialproxy', 'value': {'container_name': 'nova_serialproxy', 'group': 'nova-serialproxy', 'image': 'kolla/ubuntu-source-nova-serialproxy:ussuri', 'enabled': False, 'volumes': ['/etc/kolla/nova-serialproxy/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+ok: [server1] => (item={'key': 'nova-conductor', 'value': {'container_name': 'nova_conductor', 'group': 'nova-conductor', 'enabled': True, 'image': 'kolla/ubuntu-source-nova-conductor:ussuri', 'volumes': ['/etc/kolla/nova-conductor/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+skipping: [server1] => (item={'key': 'nova-compute', 'value': {'container_name': 'nova_compute', 'group': 'compute', 'image': 'kolla/ubuntu-source-nova-compute:ussuri', 'environment': {'LIBGUESTFS_BACKEND': 'direct'}, 'privileged': True, 'enabled': True, 'ipc_mode': 'host', 'volumes': ['/etc/kolla/nova-compute/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', '/run:/run:shared', '/dev:/dev', 'kolla_logs:/var/log/kolla/', 'iscsi_info:/etc/iscsi', 'libvirtd:/var/lib/libvirt', 'nova_compute:/var/lib/nova/', '', ''], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'nova-compute-ironic', 'value': {'container_name': 'nova_compute_ironic', 'group': 'nova-compute-ironic', 'image': 'kolla/ubuntu-source-nova-compute-ironic:ussuri', 'enabled': False, 'volumes': ['/etc/kolla/nova-compute-ironic/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+failed: [server2] (item={'key': 'nova-libvirt', 'value': {'container_name': 'nova_libvirt', 'group': 'compute', 'enabled': True, 'image': 'kolla/ubuntu-source-nova-libvirt:ussuri', 'pid_mode': 'host', 'privileged': True, 'volumes': ['/etc/kolla/nova-libvirt/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', '/run/:/run/:shared', '/dev:/dev', '/sys/fs/cgroup:/sys/fs/cgroup', 'kolla_logs:/var/log/kolla/', 'libvirtd:/var/lib/libvirt', 'nova_compute:/var/lib/nova/', '', 'nova_libvirt_qemu:/etc/libvirt/qemu', ''], 'dimensions': {}}}) => {"ansible_loop_var": "item", "item": {"key": "nova-libvirt", "value": {"container_name": "nova_libvirt", "dimensions": {}, "enabled": true, "group": "compute", "image": "kolla/ubuntu-source-nova-libvirt:ussuri", "pid_mode": "host", "privileged": true, "volumes": ["/etc/kolla/nova-libvirt/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "/lib/modules:/lib/modules:ro", "/run/:/run/:shared", "/dev:/dev", "/sys/fs/cgroup:/sys/fs/cgroup", "kolla_logs:/var/log/kolla/", "libvirtd:/var/lib/libvirt", "nova_compute:/var/lib/nova/", "", "nova_libvirt_qemu:/etc/libvirt/qemu", ""]}}, "msg": "Failed to connect to the host via ssh: Shared connection to server2 closed.", "unreachable": true}
+changed: [server2] => (item={'key': 'nova-ssh', 'value': {'container_name': 'nova_ssh', 'group': 'compute', 'image': 'kolla/ubuntu-source-nova-ssh:ussuri', 'enabled': True, 'volumes': ['/etc/kolla/nova-ssh/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla', 'nova_compute:/var/lib/nova', '', ''], 'dimensions': {}}})
+skipping: [server2] => (item={'key': 'nova-novncproxy', 'value': {'container_name': 'nova_novncproxy', 'group': 'nova-novncproxy', 'image': 'kolla/ubuntu-source-nova-novncproxy:ussuri', 'enabled': True, 'volumes': ['/etc/kolla/nova-novncproxy/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+skipping: [server2] => (item={'key': 'nova-spicehtml5proxy', 'value': {'container_name': 'nova_spicehtml5proxy', 'group': 'nova-spicehtml5proxy', 'image': 'kolla/ubuntu-source-nova-spicehtml5proxy:ussuri', 'enabled': False, 'volumes': ['/etc/kolla/nova-spicehtml5proxy/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+skipping: [server2] => (item={'key': 'nova-serialproxy', 'value': {'container_name': 'nova_serialproxy', 'group': 'nova-serialproxy', 'image': 'kolla/ubuntu-source-nova-serialproxy:ussuri', 'enabled': False, 'volumes': ['/etc/kolla/nova-serialproxy/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+skipping: [server2] => (item={'key': 'nova-conductor', 'value': {'container_name': 'nova_conductor', 'group': 'nova-conductor', 'enabled': True, 'image': 'kolla/ubuntu-source-nova-conductor:ussuri', 'volumes': ['/etc/kolla/nova-conductor/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+changed: [server2] => (item={'key': 'nova-compute', 'value': {'container_name': 'nova_compute', 'group': 'compute', 'image': 'kolla/ubuntu-source-nova-compute:ussuri', 'environment': {'LIBGUESTFS_BACKEND': 'direct'}, 'privileged': True, 'enabled': True, 'ipc_mode': 'host', 'volumes': ['/etc/kolla/nova-compute/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', '/run:/run:shared', '/dev:/dev', 'kolla_logs:/var/log/kolla/', 'iscsi_info:/etc/iscsi', 'libvirtd:/var/lib/libvirt', 'nova_compute:/var/lib/nova/', '', ''], 'dimensions': {}}})
+skipping: [server2] => (item={'key': 'nova-compute-ironic', 'value': {'container_name': 'nova_compute_ironic', 'group': 'nova-compute-ironic', 'image': 'kolla/ubuntu-source-nova-compute-ironic:ussuri', 'enabled': False, 'volumes': ['/etc/kolla/nova-compute-ironic/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+fatal: [server2]: UNREACHABLE! => {"changed": true, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"key": "nova-libvirt", "value": {"container_name": "nova_libvirt", "dimensions": {}, "enabled": true, "group": "compute", "image": "kolla/ubuntu-source-nova-libvirt:ussuri", "pid_mode": "host", "privileged": true, "volumes": ["/etc/kolla/nova-libvirt/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "/lib/modules:/lib/modules:ro", "/run/:/run/:shared", "/dev:/dev", "/sys/fs/cgroup:/sys/fs/cgroup", "kolla_logs:/var/log/kolla/", "libvirtd:/var/lib/libvirt", "nova_compute:/var/lib/nova/", "", "nova_libvirt_qemu:/etc/libvirt/qemu", ""]}}, "msg": "Failed to connect to the host via ssh: Shared connection to server2 closed.", "unreachable": true}, {"ansible_loop_var": "item", "changed": true, "failed": false, "invocation": {"module_args": {"action": "pull_image", "api_version": "auto", "auth_email": null, "auth_password": null, "auth_registry": null, "auth_username": null, "cap_add": [], "client_timeout": 120, "command": null, "detach": true, "dimensions": {}, "environment": {"KOLLA_CONFIG_STRATEGY": "COPY_ALWAYS"}, "graceful_timeout": 10, "image": "kolla/ubuntu-source-nova-ssh:ussuri", "labels": {}, "name": null, "privileged": false, "remove_on_exit": true, "restart_policy": "unless-stopped", "restart_retries": 10, "security_opt": [], "state": "running", "tls_cacert": null, "tls_cert": null, "tls_key": null, "tls_verify": false, "tty": false, "volumes": null, "volumes_from": null}}, "item": {"key": "nova-ssh", "value": {"container_name": "nova_ssh", "dimensions": {}, "enabled": true, "group": "compute", "image": "kolla/ubuntu-source-nova-ssh:ussuri", "volumes": ["/etc/kolla/nova-ssh/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "kolla_logs:/var/log/kolla", "nova_compute:/var/lib/nova", "", ""]}}, "result": false}, {"ansible_loop_var": "item", "changed": false, "item": {"key": "nova-novncproxy", "value": {"container_name": "nova_novncproxy", "dimensions": {}, "enabled": true, "group": "nova-novncproxy", "image": "kolla/ubuntu-source-nova-novncproxy:ussuri", "volumes": ["/etc/kolla/nova-novncproxy/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "kolla_logs:/var/log/kolla/", ""]}}, "skip_reason": "Conditional result was False", "skipped": true}, {"ansible_loop_var": "item", "changed": false, "item": {"key": "nova-spicehtml5proxy", "value": {"container_name": "nova_spicehtml5proxy", "dimensions": {}, "enabled": false, "group": "nova-spicehtml5proxy", "image": "kolla/ubuntu-source-nova-spicehtml5proxy:ussuri", "volumes": ["/etc/kolla/nova-spicehtml5proxy/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "kolla_logs:/var/log/kolla/", ""]}}, "skip_reason": "Conditional result was False", "skipped": true}, {"ansible_loop_var": "item", "changed": false, "item": {"key": "nova-serialproxy", "value": {"container_name": "nova_serialproxy", "dimensions": {}, "enabled": false, "group": "nova-serialproxy", "image": "kolla/ubuntu-source-nova-serialproxy:ussuri", "volumes": ["/etc/kolla/nova-serialproxy/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "kolla_logs:/var/log/kolla/", ""]}}, "skip_reason": "Conditional result was False", "skipped": true}, {"ansible_loop_var": "item", "changed": false, "item": {"key": "nova-conductor", "value": {"container_name": "nova_conductor", "dimensions": {}, "enabled": true, "group": "nova-conductor", "image": "kolla/ubuntu-source-nova-conductor:ussuri", "volumes": ["/etc/kolla/nova-conductor/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "kolla_logs:/var/log/kolla/", ""]}}, "skip_reason": "Conditional result was False", "skipped": true}, {"ansible_loop_var": "item", "changed": true, "failed": false, "invocation": {"module_args": {"action": "pull_image", "api_version": "auto", "auth_email": null, "auth_password": null, "auth_registry": null, "auth_username": null, "cap_add": [], "client_timeout": 120, "command": null, "detach": true, "dimensions": {}, "environment": {"KOLLA_CONFIG_STRATEGY": "COPY_ALWAYS"}, "graceful_timeout": 10, "image": "kolla/ubuntu-source-nova-compute:ussuri", "labels": {}, "name": null, "privileged": false, "remove_on_exit": true, "restart_policy": "unless-stopped", "restart_retries": 10, "security_opt": [], "state": "running", "tls_cacert": null, "tls_cert": null, "tls_key": null, "tls_verify": false, "tty": false, "volumes": null, "volumes_from": null}}, "item": {"key": "nova-compute", "value": {"container_name": "nova_compute", "dimensions": {}, "enabled": true, "environment": {"LIBGUESTFS_BACKEND": "direct"}, "group": "compute", "image": "kolla/ubuntu-source-nova-compute:ussuri", "ipc_mode": "host", "privileged": true, "volumes": ["/etc/kolla/nova-compute/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "/lib/modules:/lib/modules:ro", "/run:/run:shared", "/dev:/dev", "kolla_logs:/var/log/kolla/", "iscsi_info:/etc/iscsi", "libvirtd:/var/lib/libvirt", "nova_compute:/var/lib/nova/", "", ""]}}, "result": false}, {"ansible_loop_var": "item", "changed": false, "item": {"key": "nova-compute-ironic", "value": {"container_name": "nova_compute_ironic", "dimensions": {}, "enabled": false, "group": "nova-compute-ironic", "image": "kolla/ubuntu-source-nova-compute-ironic:ussuri", "volumes": ["/etc/kolla/nova-compute-ironic/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "/etc/timezone:/etc/timezone:ro", "kolla_logs:/var/log/kolla/", ""]}}, "skip_reason": "Conditional result was False", "skipped": true}]}
+
+PLAY [Refresh nova scheduler cell cache] ***************************************
+
+TASK [nova : Refresh cell cache in nova scheduler] *****************************
+skipping: [server1]
+
+PLAY [Reload global Nova super conductor services] *****************************
+
+TASK [nova : Reload nova super conductor services to remove RPC version pin] ***
+skipping: [server1]
+
+PLAY [Reload Nova cell services] ***********************************************
+
+TASK [nova-cell : Reload nova cell services to remove RPC version cap] *********
+skipping: [server1] => (item=nova-conductor) 
+skipping: [server1] => (item=nova-compute) 
+skipping: [server1] => (item=nova-compute-ironic) 
+skipping: [server1] => (item=nova-novncproxy) 
+skipping: [server1] => (item=nova-serialproxy) 
+skipping: [server1] => (item=nova-spicehtml5proxy) 
+
+PLAY [Reload global Nova API services] *****************************************
+
+TASK [nova : Reload nova API services to remove RPC version pin] ***************
+skipping: [server1] => (item=nova-scheduler) 
+skipping: [server1] => (item=nova-api) 
+
+PLAY [Run Nova API online data migrations] *************************************
+
+TASK [nova : Run Nova API online database migrations] **************************
+skipping: [server1]
+
+PLAY [Run Nova cell online data migrations] ************************************
+
+TASK [nova-cell : Run Nova cell online database migrations] ********************
+skipping: [server1]
+
+PLAY [Apply role openvswitch] **************************************************
+
+TASK [openvswitch : include_tasks] *********************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/openvswitch/tasks/pull.yml for server1
+
+TASK [openvswitch : Pulling Openvswitch images] ********************************
+ok: [server1] => (item={'key': 'openvswitch-db-server', 'value': {'container_name': 'openvswitch_db', 'image': 'kolla/ubuntu-source-openvswitch-db-server:ussuri', 'enabled': True, 'group': 'openvswitch', 'host_in_groups': True, 'volumes': ['/etc/kolla/openvswitch-db-server/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', '/run/openvswitch:/run/openvswitch:shared', 'kolla_logs:/var/log/kolla/', 'openvswitch_db:/var/lib/openvswitch/'], 'dimensions': {}}})
+ok: [server1] => (item={'key': 'openvswitch-vswitchd', 'value': {'container_name': 'openvswitch_vswitchd', 'image': 'kolla/ubuntu-source-openvswitch-vswitchd:ussuri', 'enabled': True, 'group': 'openvswitch', 'host_in_groups': True, 'privileged': True, 'volumes': ['/etc/kolla/openvswitch-vswitchd/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', '/run/openvswitch:/run/openvswitch:shared', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_openvswitch_True_enable_ovs_dpdk_True
+
+PLAY [Apply role ovs-dpdk] *****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_ovn_True
+
+PLAY [Apply role ovn] **********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role neutron] ******************************************************
+
+TASK [neutron : include_tasks] *************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/neutron/tasks/pull.yml for server1
+
+TASK [neutron : Pulling neutron images] ****************************************
+ok: [server1] => (item={'key': 'neutron-server', 'value': {'container_name': 'neutron_server', 'image': 'kolla/ubuntu-source-neutron-server:ussuri', 'enabled': True, 'group': 'neutron-server', 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-server/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}, 'haproxy': {'neutron_server': {'enabled': True, 'mode': 'http', 'external': False, 'port': '9696', 'listen_port': '9696', 'frontend_http_extra': ['option http-tunnel']}, 'neutron_server_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '9696', 'listen_port': '9696'}}}})
+ok: [server1] => (item={'key': 'neutron-openvswitch-agent', 'value': {'container_name': 'neutron_openvswitch_agent', 'image': 'kolla/ubuntu-source-neutron-openvswitch-agent:ussuri', 'enabled': True, 'privileged': True, 'environment': {'KOLLA_LEGACY_IPTABLES': 'false'}, 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-openvswitch-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', '/run/openvswitch:/run/openvswitch:shared', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+skipping: [server1] => (item={'key': 'neutron-linuxbridge-agent', 'value': {'container_name': 'neutron_linuxbridge_agent', 'image': 'kolla/ubuntu-source-neutron-linuxbridge-agent:ussuri', 'privileged': True, 'enabled': False, 'environment': {'KOLLA_LEGACY_IPTABLES': 'false'}, 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-linuxbridge-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+ok: [server1] => (item={'key': 'neutron-dhcp-agent', 'value': {'container_name': 'neutron_dhcp_agent', 'image': 'kolla/ubuntu-source-neutron-dhcp-agent:ussuri', 'privileged': True, 'enabled': True, 'group': 'neutron-dhcp-agent', 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-dhcp-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'neutron_metadata_socket:/var/lib/neutron/kolla/', '/run/netns:/run/netns:shared', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+ok: [server1] => (item={'key': 'neutron-l3-agent', 'value': {'container_name': 'neutron_l3_agent', 'image': 'kolla/ubuntu-source-neutron-l3-agent:ussuri', 'privileged': True, 'enabled': True, 'environment': {'KOLLA_LEGACY_IPTABLES': 'false'}, 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-l3-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '/lib/modules:/lib/modules:ro', 'neutron_metadata_socket:/var/lib/neutron/kolla/', '/run/netns:/run/netns:shared', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+skipping: [server1] => (item={'key': 'neutron-sriov-agent', 'value': {'container_name': 'neutron_sriov_agent', 'image': 'kolla/ubuntu-source-neutron-sriov-agent:ussuri', 'privileged': True, 'enabled': False, 'host_in_groups': False, 'volumes': ['/etc/kolla/neutron-sriov-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+ok: [server1] => (item={'key': 'neutron-metadata-agent', 'value': {'container_name': 'neutron_metadata_agent', 'image': 'kolla/ubuntu-source-neutron-metadata-agent:ussuri', 'privileged': True, 'enabled': True, 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-metadata-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'neutron_metadata_socket:/var/lib/neutron/kolla/', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}})
+skipping: [server1] => (item={'key': 'neutron-ovn-metadata-agent', 'value': {'container_name': 'neutron_ovn_metadata_agent', 'image': 'kolla/ubuntu-source-neutron-metadata-agent:ussuri', 'privileged': True, 'enabled': False, 'host_in_groups': False, 'volumes': ['/etc/kolla/neutron-ovn-metadata-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', 'neutron_metadata_socket:/var/lib/neutron/kolla/', '/run/openvswitch:/run/openvswitch:shared', '/run/netns:/run/netns:shared', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'neutron-bgp-dragent', 'value': {'container_name': 'neutron_bgp_dragent', 'image': 'kolla/ubuntu-source-neutron-bgp-dragent:ussuri', 'privileged': True, 'enabled': False, 'group': 'neutron-bgp-dragent', 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-bgp-dragent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'neutron-infoblox-ipam-agent', 'value': {'container_name': 'neutron_infoblox_ipam_agent', 'image': 'kolla/ubuntu-source-neutron-infoblox-ipam-agent:ussuri', 'privileged': True, 'enabled': False, 'group': 'neutron-infoblox-ipam-agent', 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-infoblox-ipam-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'neutron-metering-agent', 'value': {'container_name': 'neutron_metering_agent', 'image': 'kolla/ubuntu-source-neutron-metering-agent:ussuri', 'privileged': True, 'enabled': False, 'group': 'neutron-metering-agent', 'host_in_groups': True, 'volumes': ['/etc/kolla/neutron-metering-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', ''], 'dimensions': {}}}) 
+skipping: [server1] => (item={'key': 'ironic-neutron-agent', 'value': {'container_name': 'ironic_neutron_agent', 'image': 'kolla/ubuntu-source-ironic-neutron-agent:ussuri', 'privileged': False, 'enabled': False, 'group': 'ironic-neutron-agent', 'host_in_groups': True, 'volumes': ['/etc/kolla/ironic-neutron-agent/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}}) 
+[WARNING]: Could not match supplied host pattern, ignoring: enable_kuryr_True
+
+PLAY [Apply role kuryr] ********************************************************
+skipping: no hosts matched
+
+PLAY [Apply role heat] *********************************************************
+
+TASK [heat : include_tasks] ****************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/heat/tasks/pull.yml for server1
+
+TASK [heat : Pulling heat images] **********************************************
+ok: [server1] => (item={'key': 'heat-api', 'value': {'container_name': 'heat_api', 'group': 'heat-api', 'enabled': True, 'image': 'kolla/ubuntu-source-heat-api:ussuri', 'volumes': ['/etc/kolla/heat-api/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}, 'haproxy': {'heat_api': {'enabled': True, 'mode': 'http', 'external': False, 'port': '8004', 'listen_port': '8004', 'tls_backend': 'no'}, 'heat_api_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '8004', 'listen_port': '8004', 'tls_backend': 'no'}}}})
+ok: [server1] => (item={'key': 'heat-api-cfn', 'value': {'container_name': 'heat_api_cfn', 'group': 'heat-api-cfn', 'enabled': True, 'image': 'kolla/ubuntu-source-heat-api-cfn:ussuri', 'volumes': ['/etc/kolla/heat-api-cfn/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}, 'haproxy': {'heat_api_cfn': {'enabled': True, 'mode': 'http', 'external': False, 'port': '8000', 'listen_port': '8000', 'tls_backend': 'no'}, 'heat_api_cfn_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '8000', 'listen_port': '8000', 'tls_backend': 'no'}}}})
+ok: [server1] => (item={'key': 'heat-engine', 'value': {'container_name': 'heat_engine', 'group': 'heat-engine', 'enabled': True, 'image': 'kolla/ubuntu-source-heat-engine:ussuri', 'volumes': ['/etc/kolla/heat-engine/:/var/lib/kolla/config_files/:ro', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', '', 'kolla_logs:/var/log/kolla/'], 'dimensions': {}}})
+
+PLAY [Apply role horizon] ******************************************************
+
+TASK [horizon : include_tasks] *************************************************
+included: /usr/local/share/kolla-ansible/ansible/roles/horizon/tasks/pull.yml for server1
+
+TASK [horizon : Pulling horizon images] ****************************************
+ok: [server1] => (item={'key': 'horizon', 'value': {'container_name': 'horizon', 'group': 'horizon', 'enabled': True, 'image': 'kolla/ubuntu-source-horizon:ussuri', 'environment': {'ENABLE_BLAZAR': 'no', 'ENABLE_CLOUDKITTY': 'no', 'ENABLE_DESIGNATE': 'no', 'ENABLE_FREEZER': 'no', 'ENABLE_HEAT': 'yes', 'ENABLE_IRONIC': 'no', 'ENABLE_KARBOR': 'no', 'ENABLE_MAGNUM': 'no', 'ENABLE_MANILA': 'no', 'ENABLE_MASAKARI': 'no', 'ENABLE_MISTRAL': 'no', 'ENABLE_MONASCA': 'no', 'ENABLE_MURANO': 'no', 'ENABLE_NEUTRON_VPNAAS': 'no', 'ENABLE_OCTAVIA': 'no', 'ENABLE_QINLING': 'no', 'ENABLE_SAHARA': 'no', 'ENABLE_SEARCHLIGHT': 'no', 'ENABLE_SENLIN': 'no', 'ENABLE_SOLUM': 'no', 'ENABLE_TACKER': 'no', 'ENABLE_TROVE': 'no', 'ENABLE_VITRAGE': 'no', 'ENABLE_WATCHER': 'no', 'ENABLE_ZUN': 'no', 'FORCE_GENERATE': 'no'}, 'volumes': ['/etc/kolla/horizon/:/var/lib/kolla/config_files/:ro', '', '', '', '/etc/localtime:/etc/localtime:ro', '/etc/timezone:/etc/timezone:ro', 'kolla_logs:/var/log/kolla/', '/tmp:/tmp'], 'dimensions': {}, 'haproxy': {'horizon': {'enabled': True, 'mode': 'http', 'external': False, 'port': '80', 'listen_port': '80', 'backend_http_extra': ['balance source'], 'tls_backend': 'no'}, 'horizon_redirect': {'enabled': False, 'mode': 'redirect', 'external': False, 'port': '80', 'listen_port': '80'}, 'horizon_external': {'enabled': True, 'mode': 'http', 'external': True, 'port': '80', 'listen_port': '80', 'backend_http_extra': ['balance source'], 'tls_backend': 'no'}, 'horizon_external_redirect': {'enabled': False, 'mode': 'redirect', 'external': True, 'port': '80', 'listen_port': '80'}}}})
+[WARNING]: Could not match supplied host pattern, ignoring: enable_murano_True
+
+PLAY [Apply role murano] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_solum_True
+
+PLAY [Apply role solum] ********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_magnum_True
+
+PLAY [Apply role magnum] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_mistral_True
+
+PLAY [Apply role mistral] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_qinling_True
+
+PLAY [Apply role qinling] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_sahara_True
+
+PLAY [Apply role sahara] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_panko_True
+
+PLAY [Apply role panko] ********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_manila_True
+
+PLAY [Apply role manila] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_gnocchi_True
+
+PLAY [Apply role gnocchi] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_ceilometer_True
+
+PLAY [Apply role ceilometer] ***************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_monasca_True
+
+PLAY [Apply role monasca] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_aodh_True
+
+PLAY [Apply role aodh] *********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_barbican_True
+
+PLAY [Apply role barbican] *****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_cyborg_True
+
+PLAY [Apply role cyborg] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_tempest_True
+
+PLAY [Apply role tempest] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_designate_True
+
+PLAY [Apply role designate] ****************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_rally_True
+
+PLAY [Apply role rally] ********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_vmtp_True
+
+PLAY [Apply role vmtp] *********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_trove_True
+
+PLAY [Apply role trove] ********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_watcher_True
+
+PLAY [Apply role watcher] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_grafana_True
+
+PLAY [Apply role grafana] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_cloudkitty_True
+
+PLAY [Apply role cloudkitty] ***************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_freezer_True
+
+PLAY [Apply role freezer] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_senlin_True
+
+PLAY [Apply role senlin] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_searchlight_True
+
+PLAY [Apply role searchlight] **************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_tacker_True
+
+PLAY [Apply role tacker] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_octavia_True
+
+PLAY [Apply role octavia] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_zun_True
+
+PLAY [Apply role zun] **********************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_skydive_True
+
+PLAY [Apply role skydive] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_vitrage_True
+
+PLAY [Apply role vitrage] ******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring: enable_blazar_True
+
+PLAY [Apply role blazar] *******************************************************
+skipping: no hosts matched
+[WARNING]: Could not match supplied host pattern, ignoring:
+enable_masakari_True
+
+PLAY [Apply role masakari] *****************************************************
+skipping: no hosts matched
+
+PLAY RECAP *********************************************************************
+server1                    : ok=35   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+server2                    : ok=11   changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+server3                    : ok=12   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Command failed ansible-playbook -i ../multinode -e @/etc/kolla/globals.yml  -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  -e kolla_action=pull /usr/local/share/kolla-ansible/ansible/site.yml 
